@@ -1,0 +1,42 @@
+.main1 {
+  margin-top: 80px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 70%;
+  /* background-color: rgba(233, 248, 252); */
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.container1 {
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.container-left {
+  padding-top: 40px;
+  margin-left: 35px;
+}
+
+.container-right {
+  right: 0;
+  position: absolute;
+}
+
+.article {
+  width: 90%;
+  height: 200px;
+  border: solid;
+  border-radius: 20px;
+  margin-top: 20px;
+}

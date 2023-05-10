@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "logo";
+  src: url("../../font/AlexBrush-Regular.ttf") format("truetype");
+}
+
+.Navbar {
+  position: sticky;
+  width: 100%;
+  /* backdrop-filter: brightness(120%); */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  top: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  z-index: 1;
+  background-color: #ffffff80;
+}
+
+.left {
+  display: flex;
+}
+
+.logo {
+  font-family: "logo";
+  line-height: 60px;
+  font-size: 40px;
+  margin-left: 20px;
+  min-width: 160px;
+  min-height: 60px;
+  white-space: nowrap;
+}
+
+.passage {
+  font-family: "logo";
+  font-size: 30px;
+  line-height: 60px;
+  margin-left: 100px;
+  position: relative;
+}
+
+.passage::before {
+  position: absolute;
+  width: 0;
+  height: 95%;
+  left: 0;
+  content: " ";
+  border-bottom: rgb(254, 242, 232) solid 3px;
+}
+
+.passage:hover::before {
+  width: 100%;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+.comment {
+  margin-left: 50px;
+}
+
+input {
+  width: 20%;
+  height: 30px;
+  border-radius: 30px;
+  margin-top: 13px;
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
