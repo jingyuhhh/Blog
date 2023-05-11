@@ -1,0 +1,150 @@
+.passage-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.passage-container-center {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+
+.passage-container-center-left {
+  width: 80%;
+  height: 100%;
+  border-right: solid rgba(0, 0, 0, 0.05);
+}
+
+.passage-container-center-left-content {
+  padding: 30px 100px 0 0;
+}
+
+.article-container {
+  height: 280px;
+  border-bottom: solid rgba(0, 0, 0, 0.08);
+  padding: 20px 0;
+}
+
+.article-main {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-main-word {
+  width: 70%;
+  height: 100%;
+}
+
+.article-main-title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.article-main-body {
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-height: 24px;
+}
+
+.article-main-img {
+  width: 150px;
+  height: 150px;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.article-container-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.article-container-bottom-left {
+  display: flex;
+  width: 200px;
+  align-items: center;
+}
+.article-container-tag {
+  width: 80px;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.article-container-tag:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: 0.4s;
+}
+
+.article-container-time {
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.passage-container-center-right {
+  width: 30%;
+  height: 100%;
+}
+
+.passage-container-center-right-content {
+  padding: 40px;
+}
+
+.passage-right-sort {
+  height: 200px;
+}
+
+.passage-right-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.passage-right-li {
+  background-color: rgba(0, 0, 0, 0.08);
+  margin-top: 17px;
+  font-size: 17px;
+  width: 90px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.passage-right-li:hover {
+  background-color: rgba(0, 0, 0, 0.14);
+  transition: 0.4s;
+}
+.passage-right-topic {
+  height: 300px;
+}
+
+.edit {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: rgb(72, 139, 224);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.edit:hover {
+  background-color: rgba(26, 110, 216, 1);
+}

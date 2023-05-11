@@ -1,6 +1,18 @@
 body {
   margin: 0;
-  background-image: linear-gradient(90deg, #fac7c3, #fff7ec);
+  position: relative;
+}
 
-  width: 100%;
+a {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+
+  color: black;
+}
+
+div {
+  box-sizing: border-box;
 }

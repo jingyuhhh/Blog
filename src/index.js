@@ -1,30 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./js/App";
-import PassagePage from "./js/PassagePage";
-import CommentPage from "./js/CommentPage";
 import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter } from "react-router-dom";
+import Home from "./Home/Home";
+import Passage from "./Passage/Passage";
+import Comment from "./Comment/Comment";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home />,
   },
   {
-    path: "/passages",
-    element: <PassagePage />,
+    path: "/passage",
+    element: <Passage />,
   },
   {
-    path: "/comments",
-    element: <CommentPage />,
+    path: "/comment",
+    element: <Comment />,
   },
 ]);
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router}>
-      <App />
+      <Home />
     </RouterProvider>
   </React.StrictMode>
 );
