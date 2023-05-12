@@ -6,6 +6,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./Home/Home";
 import Passage from "./Passage/Passage";
 import Comment from "./Comment/Comment";
+import { useState } from "react";
 
 const router = createBrowserRouter([
   {

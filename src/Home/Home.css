@@ -15,6 +15,7 @@
   height: 100px;
   font-size: 60px;
   font-weight: 900;
+  min-width: 660px;
 }
 
 .home-img {

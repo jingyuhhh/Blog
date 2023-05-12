@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./Comment.css";
-import Msg from "./Msg.js";
+import Msg from "./Msg";
 import imgURL from "./thank.jpg";
 import Popup from "./Popup";
 

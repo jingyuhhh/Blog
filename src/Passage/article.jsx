@@ -1,7 +1,10 @@
+import { useState } from "react";
 import "./Passage.css";
 import imgURL from "./psg1.png";
+import { BiLike } from "react-icons/bi";
 
 function Article() {
+  const [like, setLike] = useState(0);
   return (
     <div className="article-container">
       <div className="article-main">
@@ -26,8 +29,15 @@ function Article() {
         <div className="article-container-bottom-left">
           <div className="article-container-tag">生活杂谈</div>
           <div className="article-container-time">2023-5-11</div>
+          <div className="article-container-bottom-like">
+            <BiLike
+              onClick={() => {
+                setLike(like + 1);
+              }}
+            />
+            <div className="article-container-bottom-likenum">{like}</div>
+          </div>
         </div>
-        <div className="article-container-bottom-right"></div>
       </div>
     </div>
   );
