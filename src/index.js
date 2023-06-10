@@ -7,6 +7,8 @@ import Home from "./Home/Home";
 import Passage from "./Passage/Passage";
 import Comment from "./Comment/Comment";
 import { useState } from "react";
+import Edit from "./Edit/Edit";
+import Signin from "./Signin/Signin";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
   {
     path: "/comment",
     element: <Comment />,
+  },
+  {
+    path: "/edit",
+    element: <Edit />,
+  },
+  {
+    path: "/Signin",
+    element: <Signin />,
   },
 ]);
 

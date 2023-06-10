@@ -19,6 +19,10 @@
   white-space: nowrap;
   width: 200px;
 }
+.logo:hover {
+  transform: scale(120%);
+  transition: 0.2s;
+}
 
 .navbar-content {
   display: flex;
@@ -70,6 +74,15 @@
   white-space: nowrap;
   min-width: 15px;
 }
+.a {
+  display: grid;
+  place-items: center;
+}
+
+.signin:hover {
+  transform: scale(110%);
+  transition: 0.3s;
+}
 
 .navbar-secondline {
   width: 100%;
@@ -87,4 +100,8 @@
 
 .navbar-ad-link {
   text-decoration: underline;
+}
+.navbar-ad-link:hover {
+  color: rgb(88, 144, 168);
+  transition: 0.2s;
 }

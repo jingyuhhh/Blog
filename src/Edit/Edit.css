@@ -1,0 +1,49 @@
+.editcontent {
+  height: 100%;
+  width: 100%;
+}
+
+.editcontainer {
+  display: flex;
+  justify-content: center;
+}
+
+.editcontainer-main {
+}
+.edittitle {
+  width: 90%;
+  height: 40px;
+  outline: none;
+  border: rgba(0, 0, 0, 0.2) solid;
+  border-radius: 7px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.editor {
+  width: 700px;
+  height: 300px;
+}
+.edit-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+.edit-button {
+  height: 40px;
+  width: 100px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+.edit-leave {
+  margin-right: 200px;
+}
+.edit-button:hover {
+  filter: brightness(95%);
+  transition: 0.3s;
+}
+.editform {
+  margin-left: 20px;
+}
+input[name="cat"] {
+  margin-bottom: 10px;
+}

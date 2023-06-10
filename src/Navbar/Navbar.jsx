@@ -40,7 +40,10 @@ function Navbar() {
                 placeholder="Search"
               ></input>
             </div>
-            <div className="signin">Sign in</div>
+            <Link to="/Signin" className="a">
+              <div className="signin">Sign in</div>
+            </Link>
+            
           </div>
         </div>
       </div>
