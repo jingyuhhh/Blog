@@ -1,0 +1,57 @@
+$bg-color:rgb(205, 231, 240);
+$button-color:rgb(163, 221, 240);
+$h1:20px;
+$small-font:14px;
+
+@mixin center(){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.sign-bg{
+  background-color: $bg-color;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  @include center();
+  .center{
+    height: 300px;
+    width: 360px;
+    background-color: white;
+    @include center();
+    .content{
+      width: 260px;
+      
+      input{
+        outline: none;
+        margin-bottom: 20px;
+        height: 35px;
+        width: 100%;
+        border: none;
+        border-bottom: solid 1px;
+      }
+      
+    }
+    button{
+      width: 250px;
+      height: 40px;
+      background-color: $button-color;
+      border: none;
+      border-radius: 3px;
+    }
+    
+    span{
+      font-size: $small-font;
+
+      text-decoration: underline;
+      
+      &:hover{
+        color: rgb(88, 144, 168);
+        
+      }
+    }
+  }
+  
+}
+

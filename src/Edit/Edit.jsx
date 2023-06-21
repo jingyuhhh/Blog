@@ -7,6 +7,8 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment/moment';
 
+
+
 function Edit() {
   const state=useLocation().state;
   let catgory=["生活杂谈","前端"];
@@ -29,6 +31,7 @@ function Edit() {
     }
     // navigate("/passage");
   }
+
   return (
     <>
     <Navbar />
