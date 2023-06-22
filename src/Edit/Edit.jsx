@@ -19,7 +19,7 @@ function Edit() {
 
   const handleClick = async()=>{
     try {
-      await axios.post(`/posts/`,{
+      await axios.post(`/posts`,{
         title,
         content,
         cat,
