@@ -46,24 +46,9 @@
 .navbar-center-right {
   display: flex;
   height: 70%;
-}
-
-.navbar-search {
-  border-radius: 20px;
-  box-sizing: border-box;
+  width: 300px;
   display: flex;
-  align-items: center;
-  background-color: rgb(245, 245, 245);
-  padding-left: 10px;
-}
-.navbar-search-input {
-  border: none;
-  outline: none;
-  align-items: center;
-  border-radius: 20px;
-  font-size: 15px;
-  height: 80%;
-  background-color: transparent;
+  flex-direction: row-reverse;
 }
 
 .signin {

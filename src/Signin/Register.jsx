@@ -19,6 +19,9 @@ function Register() {
   return (
     <div className='sign-bg'> 
     <h2>Register</h2>
+    <Link to="/">
+      <div className='back'>返回<br></br>首页</div>
+    </Link>
       <div className='center'>
         <div className='content'>
             <input type='text' name="username" onChange={handleChange} placeholder='请输入用户名' required />

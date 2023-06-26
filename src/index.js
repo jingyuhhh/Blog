@@ -10,6 +10,7 @@ import { useState } from "react";
 import Edit from "./Edit/Edit";
 import Signin from "./Signin/Signin";
 import Register from "./Signin/Register.jsx";
+import Single from "./Single/Single";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/Register",
     element: <Register />,
+  },
+  {
+    path: "/post",
+    element: <Single />,
   },
 ]);
 

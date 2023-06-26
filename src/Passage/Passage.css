@@ -124,6 +124,26 @@
   font-weight: 600;
 }
 
+.navbar-search {
+  width: 50px;
+  position: relative;
+  /* display: flex; */
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.navbar-search-input {
+  padding-left: 20px;
+  height: 27px;
+  width: 160px;
+  border-radius: 10px;
+  outline: none;
+}
+
+.search-svg {
+  position: absolute;
+}
+
 .passage-right-li {
   background-color: rgba(0, 0, 0, 0.08);
   margin-top: 17px;
@@ -134,6 +154,10 @@
   justify-content: center;
   align-items: center;
   padding: 5px;
+}
+.passage-right-li:focus {
+  background-color: rgba(0, 0, 0, 1);
+  transition: 0.2s;
 }
 
 .passage-right-li:hover {
