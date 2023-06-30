@@ -114,6 +114,7 @@ function Passage() {
     if(sortType==="time1") nextType="time2";
     if(sortType==="time2"||!sortType.includes("time")) nextType="time1";
     setSorttype(nextType);
+    
     let sorted=articles.sort(sortTypes[sortType].fn);
     setArticle(sorted)
   }

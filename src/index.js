@@ -11,6 +11,7 @@ import Edit from "./Edit/Edit";
 import Signin from "./Signin/Signin";
 import Register from "./Signin/Register.jsx";
 import Single from "./Single/Single";
+require("babel-register");
 
 const router = createBrowserRouter([
   {

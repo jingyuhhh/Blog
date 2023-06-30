@@ -19,7 +19,7 @@ function Edit() {
 
   const handleClick = async()=>{
     try {
-      await axios.post(`/posts`,{
+      await axios.post(`http://localhost:8888/posts`,{
         title,
         content,
         cat,
@@ -29,7 +29,7 @@ function Edit() {
     } catch (error) {
       console.log(error);
     }
-    // navigate("/passage");
+    navigate("/passage");
   }
 
   return (

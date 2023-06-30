@@ -6,20 +6,23 @@ import { useEffect, useState } from "react";
 function Home() {
     let content="Welcome to my Blog!";
     let [a,setA]=useState("");
+    const [inter,setInter]=useState(null);
     
-    let i = 0;
     useEffect(()=>{
+      let i=0,b="";
       console.log(i);
+      if(inter!==null) return;
       let interval=setInterval(() => {
         if(i>=content.length){
           clearInterval(interval);
         }
         else{
-          setA(a=>a+content[i]);
-          i++;
+          b = b + content[i];
+          setA(b);
+          i ++;
         }
-        
       }, 100);
+      setInter(interval);
       return ()=>{
         clearInterval(interval);
       }
