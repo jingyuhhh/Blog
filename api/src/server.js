@@ -1,4 +1,5 @@
-const postController = require("./controller/passage");
+import { postController } from "./controller/postCotroller";
+import { getPost } from "./controller/getPost";
 const express = require("express");
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(function (req, res, next) {
 });
 
 app.post("/posts", postController);
+app.get("/passage/:id", getPost);
 
 app.listen(8888, () => {
   console.log("Connected!");

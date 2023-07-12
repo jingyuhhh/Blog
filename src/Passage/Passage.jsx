@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./Passage.css";
 import { BiLike } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link,Outlet } from "react-router-dom";
 import axios from "axios";
 
 
@@ -43,6 +43,7 @@ function Passage() {
   const [content,setContent] = useState(<></>);
   useEffect(()=>{
     let filtered =article.sort(sortTypes[sortType].fn).map((article)=>(
+      <Link to={article.id.toString()}>
       <div className="article-container" key={article.id}>
       <div className="article-main">
         <div className="article-main-word">
@@ -58,17 +59,18 @@ function Passage() {
           <div className="article-container-tag">{article.tag}</div>
           <div className="article-container-time">{article.time}</div>
           <div className="article-container-bottom-like">
-            <BiLike
+            {/* <BiLike
               onClick={() => {
                 article.liked++;
                 console.log(article.liked);
               }}
-            />
-            <div className="article-container-bottom-likenum">{article.liked}</div>
+            /> */}
+            {/* <div className="article-container-bottom-likenum">{article.liked}</div> */}
           </div>
         </div>
       </div>
     </div>
+    </Link>
     ))
     setContent(filtered);
   },[article])
@@ -141,6 +143,7 @@ function Passage() {
       <Navbar />
       <Link to="/edit">
         <div className="edit">编辑</div></Link>
+        <Outlet />
       
       <div className="passage-container">
         <div className="passage-container-center">

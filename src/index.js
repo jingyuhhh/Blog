@@ -21,27 +21,29 @@ const router = createBrowserRouter([
   {
     path: "/passage",
     element: <Passage />,
+    children: [
+      {
+        path: ":passageId",
+        element: <Single />,
+      },
+    ],
   },
-  {
-    path: "/comment",
-    element: <Comment />,
-  },
+  // {
+  //   path: "/comment",
+  //   element: <Comment />,
+  // },
   {
     path: "/edit",
     element: <Edit />,
   },
-  {
-    path: "/Signin",
-    element: <Signin />,
-  },
-  {
-    path: "/Register",
-    element: <Register />,
-  },
-  {
-    path: "/post",
-    element: <Single />,
-  },
+  // {
+  //   path: "/Signin",
+  //   element: <Signin />,
+  // },
+  // {
+  //   path: "/Register",
+  //   element: <Register />,
+  // },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,7 +1,8 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "main": "db.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -9,9 +10,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5"
-  },
-  "description": ""
+  }
 }

@@ -14,17 +14,17 @@ function Navbar() {
             <Link to="/passage" className="navbar-content-li">
               文章
             </Link>
-            <Link to="/comment" className="navbar-content-li">
+            {/* <Link to="/comment" className="navbar-content-li">
               留言
-            </Link>
+            </Link> */}
           </div>
           <div className="navbar-center-right">
-          <Link to="/Register" className="a">
+          {/* <Link to="/Register" className="a">
               <div className="signin">注册</div>
             </Link>
             <Link to="/Signin" className="a">
               <div className="signin">登录</div>
-            </Link>
+            </Link> */}
             
           </div>
         </div>

@@ -3,11 +3,11 @@ import Navbar from "../Navbar/Navbar";
 import imgURL from "./hello.jpg";
 import { useEffect, useState } from "react";
 
+
 function Home() {
     let content="Welcome to my Blog!";
     let [a,setA]=useState("");
     const [inter,setInter]=useState(null);
-    
     useEffect(()=>{
       let i=0,b="";
       console.log(i);
@@ -35,6 +35,7 @@ function Home() {
         <div className="main-center">
           <div className="welcome">{a}</div>
           <img className="home-img" src={imgURL} alt="hello" />
+          <canvas data-engine="three.js r154" ></canvas>
         </div>
       </div>
     </>
