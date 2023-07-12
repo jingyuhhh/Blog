@@ -41,6 +41,7 @@ function Passage() {
   const [article,setArticle]=useState(articles);
   const [tag,setTag]=useState("全部");
   const [content,setContent] = useState(<></>);
+
   useEffect(()=>{
     let filtered =article.sort(sortTypes[sortType].fn).map((article)=>(
       <Link to={article.id.toString()}>
@@ -52,7 +53,7 @@ function Passage() {
             {article.content}
           </div>
         </div>
-        <img src={`./${article.img}`} alt="文章配图" className="article-main-img"></img>
+        <img src={require(`./${article.img}`)} alt="文章配图" className="article-main-img"></img>
       </div>
       <div className="article-container-bottom">
         <div className="article-container-bottom-left">
