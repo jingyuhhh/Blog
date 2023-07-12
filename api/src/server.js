@@ -1,6 +1,7 @@
-import { postController } from "./controller/postCotroller";
-import { getPost } from "./controller/getPost";
-const express = require("express");
+import { postController } from "./controller/postCotroller.js";
+import { getPost } from "./controller/getPost.js";
+// const express = require("express");
+import express from "express";
 const app = express();
 
 app.use(express.json());

@@ -15,6 +15,7 @@ var client = new _mongodb.MongoClient(uri, {
 }, {
   keepAlive: 1
 });
+client.connect();
 var db = client.db("blog");
 exports.db = db;
 var passage = db.collection("passage");
