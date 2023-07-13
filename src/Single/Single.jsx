@@ -8,15 +8,14 @@ import MarkdownIt from 'markdown-it';
 
 
 function Single() {
-  const [post,setPost] = useState({});
+  const [post,setPost] = useState({"title":"aaa"});
   const location = useLocation();
-  const postId = location.pathname.split("/")[2];
+  const id = location.pathname.split("/")[2];
   useEffect(()=>{
     const fetchData = async ()=>{
       try{
-        const res = await axios.get(`http://localhost:8888/passage/${postId}`);
-        console.log(res.data);
-        setPost(res.data);
+        const res = await axios.get(`http://localhost:8888/api/article/${id}`);
+        setPost(res.data[0]);
         
       } catch(error){
         console.log(error);
@@ -24,11 +23,11 @@ function Single() {
       
     }
     fetchData();
-    
-  },[postId])
+  },[id])
+
 
   const md=new MarkdownIt();
-  const result=md.render("# hahaha");
+  const result=md.render(`${post.content}`);
 
   return (
       <div className='single-main'>
@@ -37,11 +36,12 @@ function Single() {
                   <div className='back'>返回</div>
               </Link>
               <div className='passage'>
-                  <h2 className='title'>{post.title}</h2>
-                  <div className='content' dangerouslySetInnerHTML={{__html: result}}></div>
+                <h2 className='title'>{post.title}</h2>
+                <div className='content' dangerouslySetInnerHTML={{__html: result}}></div>
               </div>
-              <div className='time'>{post.time}</div>
+              <div className='time'>{post.date}</div>
               <img src={imgURL} alt='peitu'></img>
+              
           </div>
       </div>
   )

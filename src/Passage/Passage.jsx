@@ -7,42 +7,34 @@ import axios from "axios";
 
 
 function Passage() {
-  const articles=[
-    {
-      id:1,
-      title:"a",
-      content:"不得不感慨一句，现在的孩子压力太大了（虽然我也年纪不大hhh）",
-      time:"2023-5-11",
-      tag:"生活杂谈",
-      img:"psg1.png",
-      liked:0
-    },
-    {
-      id:2,
-      title:"b",
-      content:"不得不感慨一句，现在的孩子压力太大了（虽然我也年纪不大hhh）",
-      time:"2023-1-11",
-      tag:"前端",
-      img:"psg1.png",
-      liked:1
-    },
-    {
-      id:3,
-      title:"c",
-      content:"不得不感慨一句，现在的孩子压力太大了（虽然我也年纪不大hhh）",
-      time:"2024-6-11",
-      tag:"前端",
-      img:"psg1.png",
-      liked:2
+
+  const [articles,setArticles]  =useState([]);
+  const [article,setArticle]=useState([]);
+  useEffect(()=>{
+    const fetchData = async ()=>{
+      try{
+        const res = await axios.get(`http://localhost:8888/api/articles`);
+        setArticles(res.data);
+        
+      } catch(error){
+        console.log(error);
+      }
+      
     }
-  ]
+    fetchData();
+  },[]);
+  useEffect(()=>{
+    setArticle(articles);
+  },[articles])
+
   const tags=["生活杂谈","前端","全部"];
   const [sortType,setSorttype]=useState("time2");
-  const [article,setArticle]=useState(articles);
+  
   const [tag,setTag]=useState("全部");
   const [content,setContent] = useState(<></>);
 
   useEffect(()=>{
+    console.log(article);
     let filtered =article.sort(sortTypes[sortType].fn).map((article)=>(
       <Link to={article.id.toString()}>
       <div className="article-container" key={article.id}>
@@ -53,12 +45,12 @@ function Passage() {
             {article.content}
           </div>
         </div>
-        <img src={require(`./${article.img}`)} alt="文章配图" className="article-main-img"></img>
+        {/* <img src={require(`./${article.img}`)} alt="文章配图" className="article-main-img"></img> */}
       </div>
       <div className="article-container-bottom">
         <div className="article-container-bottom-left">
-          <div className="article-container-tag">{article.tag}</div>
-          <div className="article-container-time">{article.time}</div>
+          <div className="article-container-tag">{article.cat}</div>
+          <div className="article-container-time">{article.date}</div>
           <div className="article-container-bottom-like">
             {/* <BiLike
               onClick={() => {
@@ -76,19 +68,11 @@ function Passage() {
     setContent(filtered);
   },[article])
   let ob="";
-  // async function data(){
-  //   try {
-  //   const res =await axios.get(`/passage`);
-  //   setArticle(res);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-  
+
   const sortTypes={
     time1:{
       fn:(a,b)=>{
-        let aa=a.time.split("-"),bb=b.time.split("-")
+        let aa=a.date.split("-"),bb=b.date.split("-")
         for(let i=0;i<3;i++){
           if(aa[i]>bb[i]) return 1;
         }
@@ -97,7 +81,7 @@ function Passage() {
     },
     time2:{
       fn:(a,b)=>{
-        let aa=a.time.split("-"),bb=b.time.split("-")
+        let aa=a.date.split("-"),bb=b.date.split("-")
         for(let i=0;i<3;i++){
           if(aa[i]>bb[i]) return -1;
         }
