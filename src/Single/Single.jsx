@@ -43,11 +43,13 @@ function Single() {
       <div className='single-main'>
           <div className='center'>
               <Link to="/passage">
+
                   <div className='back'>返回</div>
+
               </Link>
               <div className='delete' onClick={handleDelete}>删除</div>
               <div className='passage'>
-                <h2 className='title'>{post.title}</h2>
+                <h1 className='title'>{post.title}</h1>
                 <div className='content' dangerouslySetInnerHTML={{__html: result}}></div>
                 {/* <div className='content'>{post.content}</div> */}
               </div>

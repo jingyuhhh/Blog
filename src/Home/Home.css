@@ -16,6 +16,7 @@
   font-size: 60px;
   font-weight: 900;
   min-width: 660px;
+  text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
 }
 
 .home-img {
