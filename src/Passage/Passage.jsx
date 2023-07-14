@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./Passage.css";
-import { BiLike } from "react-icons/bi";
 import { Link,Outlet } from "react-router-dom";
 import axios from "axios";
+
 
 
 function Passage() {
@@ -27,10 +27,9 @@ function Passage() {
     setArticle(articles);
   },[articles])
 
-  const tags=["生活杂谈","前端","全部"];
+  const tags=["生活杂谈","学习笔记","读书笔记","全部"];
   const [sortType,setSorttype]=useState("time2");
   
-  const [tag,setTag]=useState("全部");
   const [content,setContent] = useState(<></>);
 
   useEffect(()=>{
@@ -52,13 +51,6 @@ function Passage() {
           <div className="article-container-tag">{article.cat}</div>
           <div className="article-container-time">{article.date}</div>
           <div className="article-container-bottom-like">
-            {/* <BiLike
-              onClick={() => {
-                article.liked++;
-                console.log(article.liked);
-              }}
-            /> */}
-            {/* <div className="article-container-bottom-likenum">{article.liked}</div> */}
           </div>
         </div>
       </div>
@@ -72,28 +64,28 @@ function Passage() {
   const sortTypes={
     time1:{
       fn:(a,b)=>{
-        let aa=a.date.split("-"),bb=b.date.split("-")
-        for(let i=0;i<3;i++){
-          if(aa[i]>bb[i]) return 1;
-        }
-        return -1;
+        let aa=a.date.split("-"),bb=b.date.split("-");
+        
+        let dateA = new Date(aa[0], aa[1] - 1, aa[2]);
+        let dateB = new Date(bb[0], bb[1] - 1, bb[2]);
+        
+        if (dateA > dateB) return 1;
+        if (dateA < dateB) return -1;
+        return 0;
       }
     },
     time2:{
       fn:(a,b)=>{
-        let aa=a.date.split("-"),bb=b.date.split("-")
-        for(let i=0;i<3;i++){
-          if(aa[i]>bb[i]) return -1;
-        }
-        return 1;
+        
+        let aa=a.date.split("-"),bb=b.date.split("-");
+        let dateA = new Date(aa[0], aa[1] - 1, aa[2]);
+        let dateB = new Date(bb[0], bb[1] - 1, bb[2]);
+        if (dateA > dateB) return -1;
+        if (dateA < dateB) return 1;
+        return 0;
       },
     },
-    hot1:{
-      fn:(a,b)=>a.liked-b.liked
-    },
-    hot2:{
-      fn:(a,b)=>b.liked-a.liked
-    }
+
     
   }
   function Changetimesort(){
@@ -102,18 +94,14 @@ function Passage() {
     if(sortType==="time2"||!sortType.includes("time")) nextType="time1";
     setSorttype(nextType);
     
-    let sorted=articles.sort(sortTypes[sortType].fn);
-    setArticle(sorted)
   }
 
-  function Changehotsort(){
-    let nextType="";
-    if(!sortType.includes("hot")||sortType==="hot2") nextType="hot1";
-    else nextType="hot2";
-    setSorttype(nextType);
-    let sorted=articles.sort(sortTypes[sortType].fn);
-    setArticle(sorted)
-  }
+  useEffect(()=>{
+    const sortedArticle = [...article];
+    sortedArticle.sort(sortTypes[sortType].fn);
+    setArticle(sortedArticle);
+  },[sortType])
+
   function Search(ob){
     let sorted = articles.filter((arg)=>
       arg.content.includes(ob)||arg.title.includes(ob)
@@ -127,9 +115,9 @@ function Passage() {
     <>
       <Navbar />
       <Link to="/edit">
-        <div className="edit">编辑</div></Link>
-        <Outlet />
-      
+        <div className="edit">编辑</div>
+      </Link>
+
       <div className="passage-container">
         <div className="passage-container-center">
           <div className="passage-container-center-left">
@@ -173,19 +161,17 @@ function Passage() {
               <div className="passage-right-sort">
                 <div className="passage-right-title">排序</div>
                 <div className="passage-right-li" onClick={Changetimesort}>按时间</div>
-                <div className="passage-right-li" onClick={Changehotsort}>按热度</div>
+                {/* <div className="passage-right-li" onClick={Changehotsort}>按热度</div> */}
               </div>
               <div className="passage-right-topic">
                 <div className="passage-right-title">Topics</div>
-                <div onClick={(e)=>{
-                  let sorted = articles.filter((ob)=>
-                    ob.tag === e.target.innerText|| e.target.innerText==="全部")
-                  setArticle(sorted);
-                
-                }}>
+                <div className="passage-right-topic-container">
                 {tags.map((cat)=>(
-                  <div className="passage-right-li" onClick={()=>{
-                    setTag(cat);
+                  <div className="passage-right-li" onClick={(e)=>{
+                    let sorted = articles.filter((ob)=>
+                    ob.cat === e.target.innerText|| e.target.innerText==="全部")
+                  setArticle(sorted);
+
                   }}>{cat}</div>
                 ))}
                 </div>

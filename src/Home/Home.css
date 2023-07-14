@@ -22,3 +22,12 @@
   width: 60vw;
   aspect-ratio: 6123 / 3884;
 }
+
+@media (max-width: 1000px) {
+  .main-center {
+    width: 100%;
+  }
+  .home-img {
+    width: 100vw;
+  }
+}

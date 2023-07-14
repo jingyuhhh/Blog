@@ -9,6 +9,10 @@
         width: 50%;
         height: 100%;
         position: relative;
+        @media (max-width:1000px) {
+            width: 100%;
+            padding: 0 20px;
+        }
         .back{
             text-decoration: underline;
             margin-top: 10px;

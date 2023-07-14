@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import Navbar from '../Navbar/Navbar';
-import ReactQuill from 'react-quill';
-import "react-quill/dist/quill.snow.css"
 import "./Edit.css";
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -11,19 +9,26 @@ import moment from 'moment/moment';
 
 function Edit() {
   const state=useLocation().state;
-  let catgory=["生活杂谈","前端"];
+  let catgory=["生活杂谈","学习笔记","读书笔记"];
   let [title,setTitle]=useState(state?.title||"");
   let [content,setContent]=useState(state?.content||"");
   let [cat,setCat]=useState(state?.cat||"");
+  let [img,setImg] = useState(state?.img||"");
   const navigate=useNavigate();
 
   const handleClick = async()=>{
+
     try {
       await axios.post(`http://localhost:8888/api/add`,{
         title,
         content,
         cat,
-        date:moment(Date.now()).format("YYYY-MM-DD")
+        date:moment(Date.now()).format("YYYY-MM-DD"),
+
+      },{
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       });
 
     } catch (error) {
@@ -44,22 +49,28 @@ function Edit() {
 
               }}></input>
             <h2>正文</h2>
-            <ReactQuill onChange={setContent} className='editor' value={content} theme='snow'/>
+            <textarea type="text" className='editor' onInput={(e)=>{
+              setContent(e.target.value)
+            }} ></textarea>
+            <h2>图片</h2>
+            <input type='file' multiple onInput={(e)=>{
+              setImg(e.target.files)
+            }}></input>
           </div>
             
-            <form className='editform'>
-              <h1>Category</h1>
-              {catgory.map((item)=>(
-                <>
-                <input type='radio' name="cat" checked={cat===item} id={item} value={item} onClick={(e)=>{
-                  setCat(e.target.value);
-                }} />
-                <label htmlFor={item}>{item}</label>
-                <br></br>
-                </>
-              ))}
+          <form className='editform'>
+            <h1>Category</h1>
+            {catgory.map((item)=>(
+              <>
+              <input type='radio' name="cat" key={item} id={item} value={item} onClick={(e)=>{
+                setCat(e.target.value);
+              }} />
+              <label htmlFor={item}>{item}</label>
+              <br></br>
+              </>
+            ))}
 
-            </form>
+          </form>
         </div>
         <div className="edit-action">
           <Link to="/passage">

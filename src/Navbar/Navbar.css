@@ -90,3 +90,16 @@
   color: rgb(88, 144, 168);
   transition: 0.2s;
 }
+
+@media (max-width: 380px) {
+  .logo {
+    font-size: 23px;
+    margin-left: 20px;
+  }
+  .navbar-content {
+    margin-left: 20px;
+  }
+  .navbar-center {
+    width: 100%;
+  }
+}
