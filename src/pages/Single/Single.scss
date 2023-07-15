@@ -56,6 +56,10 @@
             }
             .content{
                 line-height: 30px;
+                > ::selection{
+                    background: rgb(143,212,237);
+                    color: white;
+                }
             }
         }
         .time{
@@ -68,4 +72,10 @@
         }
         
     }
+}
+
+.custom-blockquote{
+    background-color: rgba(161, 208, 230,0.2);
+    margin:0 0 15px 0; 
+    border-left: 5px solid rgb(143,212,237);
 }

@@ -29,7 +29,7 @@
 let mysql = require("mysql");
 
 let pool = mysql.createPool({
-  host: "127.0.0.1",
+  host: "localhost",
   user: "root",
   password: "qwer1234",
   database: "blog",

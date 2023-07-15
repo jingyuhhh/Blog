@@ -19,7 +19,7 @@
 }
 
 .passage-container-center-left-content {
-  padding: 30px 20px 0 30px;
+  padding: 30px 30px 0 30px;
 }
 
 .article-container {
@@ -36,7 +36,7 @@
 }
 
 .article-main-word {
-  width: 70%;
+  width: 100%;
   height: 100%;
 }
 
@@ -135,6 +135,7 @@
   font-size: 20px;
   font-weight: 600;
   text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.35);
+  min-width: 44px;
 }
 
 .navbar-search {
@@ -151,7 +152,7 @@
   width: 160px;
   outline: none;
   border: none;
-  background-color: rgb(232, 206, 213);
+  background-color: rgb(161, 208, 230);
   color: white;
   box-shadow: 3px 3px 8px 2px rgba(0, 0, 0, 0.1);
 }
@@ -243,6 +244,7 @@
     margin-top: 0;
     margin-left: 20px;
   }
+
   .passage-right-topic-container {
     display: flex;
     flex-wrap: wrap;

@@ -3,10 +3,10 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Route, Routes } from "react-router-dom";
 import { HashRouter } from "react-router-dom";
-import Home from "./Home/Home";
-import Passage from "./Passage/Passage";
-import Edit from "./Edit/Edit";
-import Single from "./Single/Single";
+import Home from "./pages/Home/Home";
+import Passage from "./pages/Passage/Passage";
+import Edit from "./pages/Edit/Edit";
+import Single from "./pages/Single/Single";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

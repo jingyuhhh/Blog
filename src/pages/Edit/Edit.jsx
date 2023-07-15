@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Navbar from '../Navbar/Navbar';
+import Navbar from '../../component/Navbar/Navbar';
 import "./Edit.css";
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -19,7 +19,7 @@ function Edit() {
   const handleClick = async()=>{
 
     try {
-      await axios.post(`http://localhost:8888/api/add`,{
+      await axios.post(`http://localhost:8080/api/add`,{
         title,
         content,
         cat,

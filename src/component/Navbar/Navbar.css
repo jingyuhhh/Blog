@@ -3,31 +3,27 @@
   height: 70px;
   box-sizing: border-box;
   display: flex;
+
+  align-items: center;
+}
+.navbar-center {
+  width: 100%;
+  display: flex;
   justify-content: center;
 }
 
-.navbar-center {
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .logo {
+  position: absolute;
   font-size: 30px;
   min-width: 200px;
   white-space: nowrap;
   width: 200px;
   text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.35);
+  margin-left: 10px;
 }
 .logo:hover {
   transform: scale(120%);
   transition: 0.2s;
-}
-
-.navbar-content {
-  display: flex;
-  margin-left: 100px;
 }
 
 .navbar-content-li {
@@ -38,10 +34,23 @@
   border-bottom: white solid;
   min-width: 20px;
   white-space: nowrap;
+  margin-right: 20px;
 }
 
 .navbar-content-li:hover {
   border-bottom: solid;
+}
+
+@media (max-width: 620px) {
+  .navbar {
+    justify-content: space-between;
+  }
+  .navbar-center {
+    width: auto;
+  }
+  .logo {
+    position: relative;
+  }
 }
 
 .navbar-center-right {

@@ -1,5 +1,5 @@
 import "./Home.css";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../component/Navbar/Navbar";
 import imgURL from "./hello.jpg";
 import { useEffect, useState } from "react";
 

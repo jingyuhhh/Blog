@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
-import Navbar from "../Navbar/Navbar";
+import { useEffect,  useState } from "react";
+import Navbar from "../../component/Navbar/Navbar";
 import "./Passage.css";
-import { HashRouter, Link,Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 
@@ -13,7 +13,7 @@ function Passage() {
   useEffect(()=>{
     const fetchData = async ()=>{
       try{
-        const res = await axios.get(`http://localhost:8888/api/articles`);
+        const res = await axios.get(`http://localhost:8080/api/articles`);
         setArticles(res.data);
         
       } catch(error){
@@ -164,7 +164,7 @@ function Passage() {
                 {/* <div className="passage-right-li" onClick={Changehotsort}>按热度</div> */}
               </div>
               <div className="passage-right-topic">
-                <div className="passage-right-title">Topics</div>
+                <div className="passage-right-title">话题</div>
                 <div className="passage-right-topic-container">
                 {tags.map((cat)=>(
                   <div className="passage-right-li" onClick={(e)=>{

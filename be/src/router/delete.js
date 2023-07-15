@@ -1,9 +1,8 @@
 const Router = require("koa-router");
 const db = require("../utils/db");
-const { auth } = require("../utils/auth");
 const deleteArticle = new Router();
 
-deleteArticle.get("/:id", auth, async (ctx) => {
+deleteArticle.get("/:id", async (ctx) => {
   const id = ctx.params.id;
   const sql = `delete from article where id = ${id};`;
   const data = await new Promise((resolve, reject) => {

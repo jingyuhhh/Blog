@@ -1,20 +1,20 @@
 const db = require("../utils/db");
 const Router = require("koa-router");
 const add = new Router();
-const { auth } = require("../utils/auth");
 
-add.post("/", auth, async (ctx) => {
+add.post("/", async (ctx) => {
   let data = await new Promise((resolve, reject) => {
     // 获取文章数
     let newId;
-    let searchNumsSql = `select * from article;`;
+    let searchNumsSql = `select max(id) from article;`;
 
     db.query(searchNumsSql, (err, data) => {
       if (err) {
         reject(err);
       }
-      newId = data.length + 1;
-
+      if (data) {
+        newId = data[0]["max(id)"] + 1;
+      } else newId = 1;
       // 增加文章
       let sql = `INSERT INTO article ( id , title , content , cat , date ) VALUES ('${newId}', '${ctx.request.body.title}', '${ctx.request.body.content}', '${ctx.request.body.cat}', '${ctx.request.body.date}');`;
       db.query(sql, (err, data) => {
