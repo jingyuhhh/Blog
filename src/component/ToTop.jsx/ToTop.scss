@@ -1,0 +1,16 @@
+.btn{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    border: solid 3px rgb(88,146,167);
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 80px;
+    >svg{
+        fill: rgb(88,146,167);
+        width: 90%;
+        height: 90%;
+    }
+}

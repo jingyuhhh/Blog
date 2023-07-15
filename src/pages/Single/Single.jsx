@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import MarkdownIt from 'markdown-it';
 import attrs from "markdown-it-attrs";
+import ToTop from '../../component/ToTop.jsx/ToTop';
 
 
 function Single() {
@@ -33,26 +34,41 @@ function Single() {
     await axios.get(`https://localhost:8080/api/delete/${id}`);
     navigate("/passage");
   }
-
+  const [btn,setBtn]=useState(false);
+  useEffect(()=>{
+    const handleScroll = ()=>{
+      const scrollUp = document.documentElement.scrollTop;
+      if(scrollUp > 500){
+        setBtn(true);
+      }else{
+        setBtn(false);
+      }
+    }
+    window.addEventListener("scroll",handleScroll);
+    return ()=>{
+      window.removeEventListener("scroll",handleScroll);
+    }
+  })
 
   const md=new MarkdownIt();
   md.use(attrs);
 
 // 扩展渲染规则
-md.renderer.rules.blockquote_open = function (tokens, idx, options, env, self) {
-  const token = tokens[idx];
+  md.renderer.rules.blockquote_open = function (tokens, idx, options, env, self) {
+    const token = tokens[idx];
 
-  // 获取引用层级（根据引用层级来设置左边框的样式）
-  const level = token.attrGet('level') || 0;
-  const paddingLeft = level * 10+30 +"px" ; // 根据层级计算 padding-left 的值
+    // 获取引用层级（根据引用层级来设置左边框的样式）
+    const level = token.attrGet('level') || 0;
+    const paddingLeft = level * 10+30 +"px" ; // 根据层级计算 padding-left 的值
 
-  return `<blockquote class="custom-blockquote" style="padding: 10px 30px 10px ${paddingLeft}; ">`;
-};
+    return `<blockquote class="custom-blockquote" style="padding: 10px 30px 10px ${paddingLeft}; ">`;
+  };
   const result=md.render(`${post.content}`);
 
   return (
     <>
     <Navbar />
+    {btn&&<ToTop />}
       <div className='single-main'>
           <div className='center'>
               <Link to="/passage">

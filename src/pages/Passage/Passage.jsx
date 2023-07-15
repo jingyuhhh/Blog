@@ -3,13 +3,14 @@ import Navbar from "../../component/Navbar/Navbar";
 import "./Passage.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import ToTop from "../../component/ToTop.jsx/ToTop";
 
 
 function Passage() {
 
   const [articles,setArticles]  =useState([]);
   const [article,setArticle]=useState([]);
+  const [btn,setBtn] = useState(false);
   useEffect(()=>{
     const fetchData = async ()=>{
       try{
@@ -108,16 +109,35 @@ function Passage() {
     )
     setArticle(sorted);
   }
+
+  useEffect(()=>{
+    const handleScroll = ()=>{
+      const scrollUp = document.documentElement.scrollTop;
+      if(scrollUp > 500){
+        setBtn(true);
+      }else{
+        setBtn(false);
+      }
+    }
+    window.addEventListener("scroll",handleScroll);
+    return ()=>{
+      window.removeEventListener("scroll",handleScroll);
+    }
+  })
+
+ 
   
  
   
   return (
     <>
       <Navbar />
+      {btn && <ToTop  />}
+      
       <Link to="/edit">
         <div className="edit">编辑</div>
       </Link>
-
+      
       <div className="passage-container">
         <div className="passage-container-center">
           <div className="passage-container-center-left">
