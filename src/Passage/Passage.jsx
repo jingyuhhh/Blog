@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./Passage.css";
-import { Link,Outlet } from "react-router-dom";
+import { HashRouter, Link,Outlet } from "react-router-dom";
 import axios from "axios";
 
 
