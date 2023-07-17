@@ -34,7 +34,6 @@ function Passage() {
   const [content,setContent] = useState(<></>);
 
   useEffect(()=>{
-    console.log(article);
     let filtered =article.sort(sortTypes[sortType].fn).map((article)=>(
       <Link to={article.id.toString()}>
       <div className="article-container" key={article.id}>
@@ -45,7 +44,6 @@ function Passage() {
             {article.content}
           </div>
         </div>
-        {/* <img src={require(`./${article.img}`)} alt="文章配图" className="article-main-img"></img> */}
       </div>
       <div className="article-container-bottom">
         <div className="article-container-bottom-left">
@@ -134,9 +132,7 @@ function Passage() {
       <Navbar />
       {btn && <ToTop  />}
       
-      <Link to="/edit">
-        <div className="edit">编辑</div>
-      </Link>
+
       
       <div className="passage-container">
         <div className="passage-container-center">

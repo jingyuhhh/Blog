@@ -29,11 +29,6 @@ function Single() {
   },[id])
 
 
-
-  async function handleDelete(){
-    await axios.get(`https://localhost:8080/api/delete/${id}`);
-    navigate("/passage");
-  }
   const [btn,setBtn]=useState(false);
   useEffect(()=>{
     const handleScroll = ()=>{
@@ -76,7 +71,6 @@ function Single() {
                   <div className='back'>返回</div>
 
               </Link>
-              <div className='delete' onClick={handleDelete}>删除</div>
               <div className='passage'>
                 <h1 className='title'>{post.title}</h1>
                 <div className='content' dangerouslySetInnerHTML={{__html: result}}></div>
