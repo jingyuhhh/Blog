@@ -22,7 +22,18 @@
   }
   .timeline{
     width: 100%;
-    height: 1000px;
+    height:500px;
+  }
+  .stack {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    >img {
+      width: 140px;
+      height: 70px;
+    }
   }
 }
 

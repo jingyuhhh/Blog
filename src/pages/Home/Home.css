@@ -23,7 +23,18 @@
 }
 .main-center .timeline {
   width: 100%;
-  height: 1000px;
+  height: 500px;
+}
+.main-center .stack {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-center .stack > img {
+  width: 140px;
+  height: 70px;
 }
 
 #timeline {
