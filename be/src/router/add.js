@@ -1,8 +1,10 @@
+const auth = require("../utils/auth");
+
 const db = require("../utils/db");
 const Router = require("koa-router");
 const add = new Router();
 
-add.post("/", async (ctx) => {
+add.post("/", auth,async (ctx) => {
   let data = await new Promise((resolve, reject) => {
     // 获取文章数
     let newId;

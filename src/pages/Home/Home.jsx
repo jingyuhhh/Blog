@@ -1,7 +1,7 @@
-import "./Home.css";
+import "./Home.scss";
 import Navbar from "../../component/Navbar/Navbar";
-import imgURL from "./hello.jpg";
 import { useEffect, useState } from "react";
+import TimeLine from "./TimeLine";
 
 
 function Home() {
@@ -10,7 +10,6 @@ function Home() {
     const [inter,setInter]=useState(null);
     useEffect(()=>{
       let i=0,b="";
-      console.log(i);
       if(inter!==null) return;
       let interval=setInterval(() => {
         if(i>=content.length){
@@ -34,8 +33,9 @@ function Home() {
       <div className="main">
         <div className="main-center">
           <div className="welcome">{a}</div>
-          <img className="home-img" src={imgURL} alt="hello" />
-          <canvas data-engine="three.js r154" ></canvas>
+          <div className="timeline">
+            <TimeLine />
+          </div>
         </div>
       </div>
     </>
