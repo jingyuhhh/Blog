@@ -4,6 +4,8 @@ import "./Passage.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ToTop from "../../component/ToTop.jsx/ToTop";
+import { Button, Result } from "antd";
+import { ConfigProvider } from "antd";
 
 
 function Passage() {
@@ -105,7 +107,19 @@ function Passage() {
     let sorted = articles.filter((arg)=>
       arg.content.includes(ob)||arg.title.includes(ob)
     )
-    setArticle(sorted);
+
+    if(sorted.length===0){
+
+        setContent(
+              <Result
+                  title="没有找到相关文章"
+              />
+      )
+    }
+    else{
+      setArticle(sorted);
+    }
+
   }
 
   useEffect(()=>{
@@ -131,9 +145,7 @@ function Passage() {
     <>
       <Navbar />
       {btn && <ToTop  />}
-      
 
-      
       <div className="passage-container">
         <div className="passage-container-center">
           <div className="passage-container-center-left">
@@ -164,7 +176,7 @@ function Passage() {
               </svg>
               <input
                 className="navbar-search-input"
-                placeholder="搜索文章" onChange={(e)=>{
+                placeholder="搜索文章" onKeyUp={(e)=>{
                   ob=e.target.value;
                   
                 }} onKeyDown={(e)=>{

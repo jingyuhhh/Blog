@@ -23,7 +23,27 @@
 }
 .main-center .timeline {
   width: 100%;
-  height: 500px;
+  height: 400px;
+}
+.main-center .stack-container:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 1;
+  opacity: 1;
+  transition: 1s;
+}
+.main-center .stack-container-show:before {
+  width: 0;
+  content: "";
+  position: absolute;
+  height: 100%;
+  background: white;
+  z-index: 1;
+  opacity: 1;
+  transition: all ease 1s;
 }
 .main-center .stack {
   width: 100%;

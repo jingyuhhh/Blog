@@ -13,6 +13,7 @@ import D3 from "../../assets/D3.jpg";
 function Home() {
     let content="Welcome to my Blog!";
     let [a,setA]=useState("");
+    const [showStack,setShowStack]=useState(false);
     const [inter,setInter]=useState(null);
     useEffect(()=>{
       let i=0,b="";
@@ -32,7 +33,9 @@ function Home() {
         clearInterval(interval);
       }
     },[]);
-
+    const timeOut = setTimeout(() => {
+        setShowStack(true)
+    }, 3000)
   return (
     <>
       <Navbar />
@@ -42,14 +45,21 @@ function Home() {
           <div className="timeline">
             <TimeLine />
           </div>
-            <h3 className="stack-title">本站搭建没有用任何模板，用到的技术栈如下</h3>
-            <div className="stack">
-                <img src={sass} alt="sass" />
-                <img src={koa} alt="koa" />
-                <img src={react} alt="react" />
-                <img src={mysql} alt="mysql" />
-                <img src={D3} alt="D3" />
+            <div>
+
+            <div className={showStack?"stack-container-show":"stack-container"}>
+                <h3 >本站搭建没有用任何模板，用到的技术栈如下</h3>
+                <div className="stack">
+                    <img src={sass} alt="sass" />
+                    <img src={koa} alt="koa" />
+                    <img src={react} alt="react" />
+                    <img src={mysql} alt="mysql" />
+                    <img src={D3} alt="D3" />
+                </div>
             </div>
+
+            </div>
+
         </div>
       </div>
     </>
