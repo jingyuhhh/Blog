@@ -1,65 +1,56 @@
 import "./Home.scss";
 import Navbar from "../../component/Navbar/Navbar";
-import { useEffect, useState } from "react";
-import TimeLine from "./TimeLine";
-import sass from "../../assets/sass.svg";
-import koa from "../../assets/koa.svg";
-import react from "../../assets/react.svg";
-import mysql from "../../assets/mysql.svg";
-import D3 from "../../assets/D3.jpg";
-
-
+import {  useEffect, useState } from "react";
+import TimeLine from "./Component/TimeLine";
+import Stack from "./Component/Stack";
+import { useRef } from "react";
 
 function Home() {
-    let content="Welcome to my Blog!";
-    let [a,setA]=useState("");
-    const [showStack,setShowStack]=useState(false);
-    const [inter,setInter]=useState(null);
-    useEffect(()=>{
-      let i=0,b="";
-      if(inter!==null) return;
-      let interval=setInterval(() => {
-        if(i>=content.length){
-          clearInterval(interval);
+  let content="Welcome to my Blog!";
+  let [text,setText]=useState("");
+  const eleRef = useRef();
+  const [triggerFadeIn, setTriggerFadeIn] = useState(false);
+  // 打字机效果
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setText(content.slice(0, text.length + 1));
+    }, 100);
+    return () => clearTimeout(timeout);
+  }, [text]);
+  useEffect(() => {
+    const observerCallback= (entries) => {
+      entries.map((entry) => {
+        // 当元素和viewport相交时，添加类名选择器，触发对应的animation
+        if (entry.isIntersecting && entry.target === eleRef.current) {
+          setTriggerFadeIn(true);
+          // 释放掉observer，减少性能负担
+          observer.disconnect();
         }
-        else{
-          b = b + content[i];
-          setA(b);
-          i ++;
-        }
-      }, 100);
-      setInter(interval);
-      return ()=>{
-        clearInterval(interval);
-      }
-    },[]);
-    const timeOut = setTimeout(() => {
-        setShowStack(true)
-    }, 3000)
+      });
+    };
+    const options = {
+      rootMargin: "-200px", // 缩小viewport,确定哪时候触发
+    };
+    let observer = new IntersectionObserver(observerCallback, options);
+    observer.observe(eleRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   return (
     <>
       <Navbar />
       <div className="main">
         <div className="main-center">
-          <div className="welcome">{a}</div>
+          <div className="welcome blink-cursor">{text}</div>
           <div className="timeline">
             <TimeLine />
           </div>
-            <div>
-
-            <div className={showStack?"stack-container-show":"stack-container"}>
-                <h3 >本站搭建没有用任何模板，用到的技术栈如下</h3>
-                <div className="stack">
-                    <img src={sass} alt="sass" />
-                    <img src={koa} alt="koa" />
-                    <img src={react} alt="react" />
-                    <img src={mysql} alt="mysql" />
-                    <img src={D3} alt="D3" />
-                </div>
-            </div>
-
-            </div>
-
+          <div ref={eleRef} className={triggerFadeIn?"fadeIn":"hide"}>
+             <Stack />    
+          </div>
+          
         </div>
       </div>
     </>

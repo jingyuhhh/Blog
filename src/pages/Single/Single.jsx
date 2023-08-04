@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../../component/Navbar/Navbar'
 import "./Single.scss"
-
 import { Link, useLocation, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import MarkdownIt from 'markdown-it';
@@ -27,7 +26,7 @@ function Single() {
     }
     fetchData();
   },[id])
-
+    
 
   const [btn,setBtn]=useState(false);
   useEffect(()=>{

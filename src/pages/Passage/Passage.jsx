@@ -1,15 +1,12 @@
-import { useEffect,  useState } from "react";
+import { useEffect,  useState,useRef } from "react";
 import Navbar from "../../component/Navbar/Navbar";
 import "./Passage.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ToTop from "../../component/ToTop.jsx/ToTop";
-import { Button, Result } from "antd";
-import { ConfigProvider } from "antd";
-
+import {Result } from "antd";
 
 function Passage() {
-
   const [articles,setArticles]  =useState([]);
   const [article,setArticle]=useState([]);
   const [btn,setBtn] = useState(false);
@@ -26,9 +23,9 @@ function Passage() {
     }
     fetchData();
   },[]);
-  useEffect(()=>{
+  useEffect(() => {
     setArticle(articles);
-  },[articles])
+  }, [articles]);
 
   const tags=["生活杂谈","学习笔记","读书笔记","全部"];
   const [sortType,setSorttype]=useState("time2");
@@ -38,7 +35,7 @@ function Passage() {
   useEffect(()=>{
     let filtered =article.sort(sortTypes[sortType].fn).map((article)=>(
       <Link to={article.id.toString()}>
-      <div className="article-container" key={article.id}>
+      <div key={article.id} className='article-container'>
       <div className="article-main">
         <div className="article-main-word">
           <div className="article-main-title">{article.title}</div>
@@ -109,11 +106,10 @@ function Passage() {
     )
 
     if(sorted.length===0){
-
         setContent(
-              <Result
-                  title="没有找到相关文章"
-              />
+          <Result
+              title="没有找到相关文章"
+          />
       )
     }
     else{
