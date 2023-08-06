@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../../component/Navbar/Navbar'
 import "./Single.scss"
-import { Link, useLocation, useNavigate} from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
 import axios from 'axios';
 import MarkdownIt from 'markdown-it';
 import attrs from "markdown-it-attrs";
@@ -12,7 +12,6 @@ function Single() {
   const [post,setPost] = useState({"title":"aaa"});
   const location = useLocation();
   const id = location.pathname.split("/")[2];
-  const navigate = useNavigate();
   useEffect(()=>{
     const fetchData = async ()=>{
       try{

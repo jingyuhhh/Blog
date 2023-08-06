@@ -19,6 +19,7 @@ div {
 }
 .fadeIn{
   animation: fade-in ease 1.5s forwards;
+
 }
 .hide{
   opacity: 0;

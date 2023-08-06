@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import ToTop from "../../component/ToTop.jsx/ToTop";
 import {Result } from "antd";
+import Observer from "../../component/Observer/Observer";
 
 function Passage() {
   const [articles,setArticles]  =useState([]);
@@ -34,26 +35,28 @@ function Passage() {
 
   useEffect(()=>{
     let filtered =article.sort(sortTypes[sortType].fn).map((article)=>(
-      <Link to={article.id.toString()}>
-      <div key={article.id} className='article-container'>
-      <div className="article-main">
-        <div className="article-main-word">
-          <div className="article-main-title">{article.title}</div>
-          <div className="article-main-body">
-            {article.content}
+      <Observer>
+        <Link to={article.id.toString()}>
+        <div key={article.id} className='article-container'>
+        <div className="article-main">
+          <div className="article-main-word">
+            <div className="article-main-title">{article.title}</div>
+            <div className="article-main-body">
+              {article.content}
+            </div>
+          </div>
+        </div>
+        <div className="article-container-bottom">
+          <div className="article-container-bottom-left">
+            <div className="article-container-tag">{article.cat}</div>
+            <div className="article-container-time">{article.date}</div>
+            <div className="article-container-bottom-like">
+            </div>
           </div>
         </div>
       </div>
-      <div className="article-container-bottom">
-        <div className="article-container-bottom-left">
-          <div className="article-container-tag">{article.cat}</div>
-          <div className="article-container-time">{article.date}</div>
-          <div className="article-container-bottom-like">
-          </div>
-        </div>
-      </div>
-    </div>
-    </Link>
+      </Link>
+    </Observer>
     ))
     setContent(filtered);
   },[article])
