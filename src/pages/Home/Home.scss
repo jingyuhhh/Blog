@@ -4,6 +4,8 @@
   height: 100%;
   display: flex;
   justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
 }
 .main-center {
   width: 50%;
@@ -18,18 +20,22 @@
     text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
+    @media (max-width: 760px) {
+      font-size: 40px;
+    }
   }
   .timeline{
-    margin-top: 30px;
     width: 100%;
-    height:500px;
+    height:550px;
   }
   .stack {
     width: 100%;
     height: 200px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     >img {
       width: 140px;

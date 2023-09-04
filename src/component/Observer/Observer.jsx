@@ -1,4 +1,3 @@
-import { style } from "d3";
 import { useRef } from "react";
 import { useEffect, useState } from "react";
 import React from 'react'
@@ -8,19 +7,18 @@ function Observer({children}) {
     const height = useRef();
     const width = useRef();
     const [triggerFadeIn, setTriggerFadeIn] = useState(false);
+    const screenHeight = window.innerHeight;
     useEffect(() => {
         const observerCallback= (entries) => {
           entries.map((entry) => {
             // 当元素和viewport相交时，添加类名选择器，触发对应的animation
             if (entry.isIntersecting && entry.target === eleRef.current) {
               setTriggerFadeIn(true);
-            }else{
-              setTriggerFadeIn(false);
             }
           });
         };
         const options = {
-          rootMargin: "-100px", // 缩小viewport,确定哪时候触发
+          rootMargin:  `-${screenHeight*0.2}px 0px -${screenHeight*0.2}px 0px`,
         };
         let observer = new IntersectionObserver(observerCallback, options);
         observer.observe(eleRef.current);

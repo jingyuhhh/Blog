@@ -1,14 +1,13 @@
 import React, {useEffect} from 'react'
 import * as d3 from 'd3'
-import {func} from "three/addons/nodes/code/FunctionNode";
-import attrs from "markdown-it-attrs";
 
 function TimeLine() {
   let timeLine;
   let width,height;
   const data = [
-    {date: "2022-09", value: "考入华中科技大学计算机专业"},
-    {date: "2023-04", value: "加入冰岩团队前端组，耶耶耶"},
+    {date: "2019-09", value: "雅礼中学"},
+    {date: "2022-09", value: "华中科技大学计算机专业"},
+    {date: "2023-04", value: "冰岩团队前端组"},
     {date: "……", value: "未完待续"},
 ]
   function drawDot(index,item){

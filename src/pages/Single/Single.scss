@@ -79,3 +79,16 @@
     margin:0 0 15px 0; 
     border-left: 5px solid rgb(143,212,237);
 }
+
+code{
+    padding: 2px 5px;
+    border-radius: 3px;
+    line-height: normal;
+}
+pre{
+    background-color: rgba(161, 208, 230,0.2);
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-x: auto;
+}

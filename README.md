@@ -16,6 +16,8 @@
 
 此仓库只包含博客页面的前端和后端，后台管理系统的前端在<a href="https://github.com/volcano621/blog-cms">blog_cms</a>
 
+项目部署在<a href="https://www.volcano621.fun/">火山的博客</a>
+
 刚学完React写的，有些代码可能会有些丑陋
 
 ## :sparkles: Features
@@ -50,10 +52,10 @@
 
 The following tools were used in this project:
 
-+ 前端
++ fe
   + React
   + Sass
-+ 后端
++ be
   + Koa
   + Mysql
 

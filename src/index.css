@@ -25,6 +25,12 @@ div {
   opacity: 0;
 }
 
+.beian{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

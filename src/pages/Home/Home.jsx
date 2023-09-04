@@ -11,14 +11,14 @@ function Home() {
   let content="Welcome to my Blog!";
   let [text,setText]=useState("");
   const canvasEl = useRef()
-  useEffect(()=>{
-    async function getData(){
-      const res = await axios.get("https://github-contributions-api.now.sh/v1/volcano621");
-      return res.data;
-    }
-    const contributionData = getData();
-    console.log(contributionData);
-  },[])
+  // useEffect(()=>{
+  //   async function getData(){
+  //     const res = await axios.get("https://volcano621.fun:53/api/contributions");
+  //     return res.data;
+  //   }
+  //   const contributionData = getData();
+  //   console.log(contributionData);
+  // },[])
   
   // 打字机效果
   useEffect(() => {

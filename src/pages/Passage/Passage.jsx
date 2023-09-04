@@ -14,7 +14,7 @@ function Passage() {
   useEffect(()=>{
     const fetchData = async ()=>{
       try{
-        const res = await axios.get(`http://localhost:8080/api/articles`);
+        const res = await axios.get(`/api/articles`);
         setArticles(res.data);
         
       } catch(error){

@@ -4,18 +4,19 @@ import "./Single.scss"
 import { Link, useLocation} from 'react-router-dom';
 import axios from 'axios';
 import MarkdownIt from 'markdown-it';
+import hljs from 'highlight.js';
 import attrs from "markdown-it-attrs";
 import ToTop from '../../component/ToTop.jsx/ToTop';
 
 
 function Single() {
-  const [post,setPost] = useState({"title":"aaa"});
+  const [post,setPost] = useState({title:"",date:"",content:"",cat:""});
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   useEffect(()=>{
     const fetchData = async ()=>{
       try{
-        const res = await axios.get(`http://localhost:8080/api/article/${id}`);
+        const res = await axios.get(`/api/article/${id}`);
         setPost(res.data[0]);
         
       } catch(error){
@@ -43,7 +44,17 @@ function Single() {
     }
   })
 
-  const md=new MarkdownIt();
+  const md=new MarkdownIt({
+    highlight: function (str, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return hljs.highlight(str, { language: lang }).value;
+        } catch (__) {}
+      }
+  
+      return ''; // 使用默认的Markdown转义
+    }
+  });
   md.use(attrs);
 
 // 扩展渲染规则
@@ -56,7 +67,9 @@ function Single() {
 
     return `<blockquote class="custom-blockquote" style="padding: 10px 30px 10px ${paddingLeft}; ">`;
   };
-  const result=md.render(`${post.content}`);
+  const result=md.render(`${post.content?.replace(/''/g, "'")
+  .replace(/""/g, '"')
+  .replace(/\\\\/g, '\\')}`);
 
   return (
     <>
