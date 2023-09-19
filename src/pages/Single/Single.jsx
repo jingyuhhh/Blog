@@ -7,6 +7,7 @@ import MarkdownIt from 'markdown-it';
 import hljs from 'highlight.js';
 import attrs from "markdown-it-attrs";
 import ToTop from '../../component/ToTop.jsx/ToTop';
+import katex from 'markdown-it-katex';
 
 
 function Single() {
@@ -51,11 +52,14 @@ function Single() {
           return hljs.highlight(str, { language: lang }).value;
         } catch (__) {}
       }
-  
       return ''; // 使用默认的Markdown转义
-    }
+    },
+    html: true, // 允许渲染原始 HTML
+    xhtmlOut: false, // 不生成 XHTML 格式的输出
+    breaks: true, // 自动识别换行符
   });
   md.use(attrs);
+  md.use(katex);
 
 // 扩展渲染规则
   md.renderer.rules.blockquote_open = function (tokens, idx, options, env, self) {
@@ -67,6 +71,7 @@ function Single() {
 
     return `<blockquote class="custom-blockquote" style="padding: 10px 30px 10px ${paddingLeft}; ">`;
   };
+
   const result=md.render(`${post.content?.replace(/''/g, "'")
   .replace(/""/g, '"')
   .replace(/\\\\/g, '\\')}`);

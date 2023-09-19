@@ -2,6 +2,7 @@ body {
   margin: 0;
   position: relative;
   cursor: url("./assets/normal.cur"), pointer;
+  min-width: 320px
 }
 
 a {

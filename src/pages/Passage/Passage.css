@@ -236,7 +236,7 @@
   .passage-right-sort,
   .passage-right-topic {
     display: flex;
-    height: 50px;
+    height: auto;
     align-items: center;
     margin-top: 10px;
   }

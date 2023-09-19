@@ -92,3 +92,14 @@ pre{
     box-sizing: border-box;
     overflow-x: auto;
 }
+
+.single-link{
+    text-decoration: underline;
+    &:hover{
+        color: rgb(143,212,237);
+    }
+}
+
+.base.displaystyle.textstyle.uncramped{
+    display: none;
+}
